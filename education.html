@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | MAW</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="education-page">
+
+<!-- Background -->
+
+<div class="background-grid"></div>
+
+<div class="particles"></div>
+
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+
+<!-- Header -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+MAW
+</div>
+
+<ul class="nav-links">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="skills.html">Skills</a></li>
+
+<li><a href="projects.html">Projects</a></li>
+
+<li><a href="education.html" class="active">Education</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+<button id="profile-btn">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="currentColor">
+
+<path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
+
+</svg>
+
+</button>
+
+</nav>
+
+</header>
+
+<!-- Education -->
+<section id="education" class="section">
+
+    <h2 class="section-title">
+       My Education
+    </h2>
+
+    <div class="education-container">
+
+        <!-- BCA -->
+
+        <div class="education-card">
+
+            <div class="edu-year">
+                2023 - 2026
+            </div>
+
+            <h3>
+                Bachelor of Computer Applications (BCA)
+            </h3>
+
+            <h4>
+                Indian Academy Degree College, Bengaluru
+            </h4>
+
+            <p>
+                Successfully completed my Bachelor's degree in Computer Applications
+                with a strong foundation in software development, web technologies,
+                database management, programming, and data analytics.
+            </p>
+
+            <div class="education-highlight">
+                <span>Overall CGPA</span>
+                <h2>8.88 / 10</h2>
+            </div>
+
+        </div>
+
+
+
+        <!-- PUC -->
+
+        <div class="education-card">
+
+            <div class="edu-year">
+                2021 - 2023
+            </div>
+
+            <h3>
+                Pre-University Course (Class XII)
+            </h3>
+
+            <h4>
+                Teachers Pre-University College, Bengaluru
+            </h4>
+
+            <p>
+                Completed Pre-University education with excellent academic
+                performance while building a strong analytical and technical
+                foundation for higher studies.
+            </p>
+
+            <div class="education-highlight">
+                <span>Percentage</span>
+                <h2>80.83%</h2>
+            </div>
+
+        </div>
+
+
+
+        <!-- ICSE -->
+
+        <div class="education-card">
+
+            <div class="edu-year">
+                2021
+            </div>
+
+            <h3>
+                ICSE - Class X
+            </h3>
+
+            <h4>
+                Seventh Day Adventist Higher Secondary School, Bengaluru
+            </h4>
+
+            <p>
+                Successfully completed secondary education with a solid
+                academic record while developing strong communication,
+                analytical, and problem-solving skills.
+            </p>
+
+            <div class="education-highlight">
+                <span>Percentage</span>
+                <h2>81.5%</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+
+document.querySelectorAll("a").forEach(link=>{
+
+link.addEventListener("click",function(e){
+
+if(this.href && this.hostname===window.location.hostname){
+
+e.preventDefault();
+
+let url=this.href;
+
+document.body.classList.add("fade-out");
+
+setTimeout(()=>{
+
+window.location.href=url;
+
+},250);
+
+}
+
+});
+
+});
+
+</script>
+
+<script>
+
+const sections=document.querySelectorAll(".section");
+
+function reveal(){
+
+sections.forEach(section=>{
+
+let top=section.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+section.classList.add("show");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | MAW</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome Icons -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body class="contact-page">
+
+<!-- ==========================================
+            BACKGROUND EFFECTS
+========================================== -->
+
+<div class="background-grid"></div>
+
+<div class="particles"></div>
+
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+
+
+
+<!-- ==========================================
+                HEADER
+========================================== -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+MAW
+
+</div>
+
+
+<ul class="nav-links">
+
+<li>
+
+<a href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="about.html">
+
+About
+
+</a>
+
+</li>
+
+<li>
+
+<a href="skills.html">
+
+Skills
+
+</a>
+
+</li>
+
+<li>
+
+<a href="projects.html">
+
+Projects
+
+</a>
+
+</li>
+
+<li>
+
+<a href="education.html">
+
+Education
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html" class="active">
+
+Contact
+
+</a>
+
+</li>
+
+</ul>
+<button id="profile-btn">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="currentColor">
+
+<path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
+
+</svg>
+
+</button>
+
+</nav>
+
+</header>
+
+
+
+<!-- ==========================================
+                CONTACT SECTION
+========================================== -->
+<section id="contact" class="section">
+
+    <h2 class="section-title">
+        Contact Me
+    </h2>
+
+    <p class="contact-subtitle">
+        Let's build something amazing together.
+    </p>
+
+    <!-- Contact Cards -->
+    <div class="contact-grid">
+
+<!-- Email -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=mdabdulwahid.0826@gmail.com" 
+   target="_blank" 
+   class="contact-card">
+
+    <i class="fas fa-envelope"></i>
+
+    <div>
+        <h3>Email</h3>
+        <span>mdabdulwahid.0826@gmail.com</span>
+    </div>
+
+</a>
+        <!-- Phone -->
+        <a href="tel:+916366458585" class="contact-card">
+            <i class="fas fa-phone"></i>
+
+            <div>
+                <h3>Phone</h3>
+                <span>+91 6366458585</span>
+            </div>
+        </a>
+
+        <!-- Location -->
+        <a href="https://maps.google.com/?q=Bengaluru,Karnataka"
+           target="_blank"
+           class="contact-card">
+
+            <i class="fas fa-map-marker-alt"></i>
+
+            <div>
+                <h3>Location</h3>
+                <span>Bengaluru, Karnataka</span>
+            </div>
+
+        </a>
+
+        <!-- LinkedIn -->
+        <!-- LinkedIn -->
+<a href="https://www.linkedin.com/in/mohammed-abdulwahid" 
+   target="_blank" 
+   class="contact-card">
+
+    <i class="fab fa-linkedin"></i>
+
+    <div>
+        <h3>LinkedIn</h3>
+        <span>linkedin.com/in/mohammed-abdulwahid</span>
+    </div>
+
+</a>
+        <!-- GitHub -->
+        <a href="https://github.com/mdabdulwahid08"
+           target="_blank"
+           class="contact-card">
+
+            <i class="fab fa-github"></i>
+
+            <div>
+                <h3>GitHub</h3>
+                <span>github.com/mdabdulwahid08</span>
+            </div>
+
+        </a>
+
+    </div>
+
+    <!-- FORM BELOW -->
+    <div class="contact-form-box">
+<form id="contact-form">
+
+    <input
+        type="text"
+        name="from_name"
+        placeholder="Your Name"
+        required>
+
+    <input
+        type="email"
+        name="from_email"
+        placeholder="Your Email"
+        required>
+
+    <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        required>
+
+    <textarea
+        name="message"
+        placeholder="Your Message"
+        required></textarea>
+
+    <button type="submit">
+        Send Message
+    </button>
+
+</form>
+    </div>
+
+</section>
+<!-- ==========================================
+            EMAILJS CDN
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+/* ==========================================
+            EMAILJS
+========================================== */
+
+emailjs.init({
+
+    publicKey:"YOUR_PUBLIC_KEY"
+
+});
+
+
+const form=document.getElementById("contact-form");
+
+const status=document.getElementById("status-message");
+
+
+form.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    status.innerHTML="Sending...";
+
+    emailjs.sendForm(
+
+        "YOUR_SERVICE_ID",
+
+        "YOUR_TEMPLATE_ID",
+
+        "#contact-form"
+
+    )
+
+    .then(function(){
+
+        status.innerHTML="✅ Message sent successfully!";
+
+        status.style.color="#00C896";
+
+        form.reset();
+
+    })
+
+    .catch(function(error){
+
+        status.innerHTML="❌ Failed to send message.";
+
+        status.style.color="#ff5c5c";
+
+        console.log(error);
+
+    });
+
+});
+
+</script>
+
+
+
+<!-- ==========================================
+            PAGE TRANSITION
+========================================== -->
+
+<script>
+
+document.querySelectorAll("a").forEach(link=>{
+
+    link.addEventListener("click",function(e){
+
+        if(this.href && this.hostname===window.location.hostname){
+
+            e.preventDefault();
+
+            let url=this.href;
+
+            document.body.classList.add("fade-out");
+
+            setTimeout(()=>{
+
+                window.location.href=url;
+
+            },250);
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+
+<!-- ==========================================
+            SCROLL REVEAL
+========================================== -->
+
+<script>
+
+const sections=document.querySelectorAll(".section");
+
+function reveal(){
+
+    sections.forEach(section=>{
+
+        let top=section.getBoundingClientRect().top;
+
+        if(top<window.innerHeight-100){
+
+            section.classList.add("show");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init({
+    publicKey: "4QGSAv-sux0AoWBEi",
+});
+
+document
+.getElementById("contact-form")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    emailjs.sendForm(
+
+        "service_q33v1sy",
+
+        "template_1nb8wmn",
+
+        this
+
+    )
+
+    .then(function(){
+
+    
+showToast(" Thank you! Your message has been sent successfully.");
+        document.getElementById("contact-form").reset();
+
+    })
+
+    .catch(function(error){
+
+        alert("❌ Failed to send message.");
+
+        console.error(error);
+
+    });
+
+});
+
+</script>
+<div id="toast" class="toast">
+    ✅ Message sent successfully!
+</div>
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+</script>
+</body>
+
+</html>
