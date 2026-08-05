@@ -2669,10 +2669,12 @@ RESPONSIVE
     justify-content:center;
 
 }
-
 .nav-links{
-
-    display:none;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
 }
 
