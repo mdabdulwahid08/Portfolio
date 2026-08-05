@@ -419,13 +419,9 @@ NAV LINKS
 =========================== */
 
 .nav-links{
-
     display:flex;
-
-    align-items:center;
-
-    gap:40px;
-
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .nav-links li{
